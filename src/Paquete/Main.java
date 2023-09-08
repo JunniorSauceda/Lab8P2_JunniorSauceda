@@ -27,21 +27,120 @@ public class Main extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        Pn_agregPais = new javax.swing.JPanel();
+        Pn_agregarNad = new javax.swing.JPanel();
+        Pn_agregarEvt = new javax.swing.JPanel();
+        Pn_ListPais = new javax.swing.JPanel();
+        Pn_listNad = new javax.swing.JPanel();
+        Pn_listEvt = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(51, 102, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Pn_agregPais.setBackground(new java.awt.Color(51, 0, 102));
+
+        javax.swing.GroupLayout Pn_agregPaisLayout = new javax.swing.GroupLayout(Pn_agregPais);
+        Pn_agregPais.setLayout(Pn_agregPaisLayout);
+        Pn_agregPaisLayout.setHorizontalGroup(
+            Pn_agregPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 880, Short.MAX_VALUE)
+        );
+        Pn_agregPaisLayout.setVerticalGroup(
+            Pn_agregPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 559, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Agregar Pais", Pn_agregPais);
+
+        Pn_agregarNad.setBackground(new java.awt.Color(0, 102, 153));
+
+        javax.swing.GroupLayout Pn_agregarNadLayout = new javax.swing.GroupLayout(Pn_agregarNad);
+        Pn_agregarNad.setLayout(Pn_agregarNadLayout);
+        Pn_agregarNadLayout.setHorizontalGroup(
+            Pn_agregarNadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 880, Short.MAX_VALUE)
+        );
+        Pn_agregarNadLayout.setVerticalGroup(
+            Pn_agregarNadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 559, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Agregar Nadador", Pn_agregarNad);
+
+        Pn_agregarEvt.setBackground(new java.awt.Color(204, 204, 0));
+
+        javax.swing.GroupLayout Pn_agregarEvtLayout = new javax.swing.GroupLayout(Pn_agregarEvt);
+        Pn_agregarEvt.setLayout(Pn_agregarEvtLayout);
+        Pn_agregarEvtLayout.setHorizontalGroup(
+            Pn_agregarEvtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 880, Short.MAX_VALUE)
+        );
+        Pn_agregarEvtLayout.setVerticalGroup(
+            Pn_agregarEvtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 559, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Agregar Evento", Pn_agregarEvt);
+
+        Pn_ListPais.setBackground(new java.awt.Color(102, 0, 0));
+
+        javax.swing.GroupLayout Pn_ListPaisLayout = new javax.swing.GroupLayout(Pn_ListPais);
+        Pn_ListPais.setLayout(Pn_ListPaisLayout);
+        Pn_ListPaisLayout.setHorizontalGroup(
+            Pn_ListPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 880, Short.MAX_VALUE)
+        );
+        Pn_ListPaisLayout.setVerticalGroup(
+            Pn_ListPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 559, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Listar Paises", Pn_ListPais);
+
+        Pn_listNad.setBackground(new java.awt.Color(0, 51, 102));
+
+        javax.swing.GroupLayout Pn_listNadLayout = new javax.swing.GroupLayout(Pn_listNad);
+        Pn_listNad.setLayout(Pn_listNadLayout);
+        Pn_listNadLayout.setHorizontalGroup(
+            Pn_listNadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 880, Short.MAX_VALUE)
+        );
+        Pn_listNadLayout.setVerticalGroup(
+            Pn_listNadLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 559, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Listar Nadadores", Pn_listNad);
+
+        Pn_listEvt.setBackground(new java.awt.Color(0, 102, 102));
+
+        javax.swing.GroupLayout Pn_listEvtLayout = new javax.swing.GroupLayout(Pn_listEvt);
+        Pn_listEvt.setLayout(Pn_listEvtLayout);
+        Pn_listEvtLayout.setHorizontalGroup(
+            Pn_listEvtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 880, Short.MAX_VALUE)
+        );
+        Pn_listEvtLayout.setVerticalGroup(
+            Pn_listEvtLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 559, Short.MAX_VALUE)
+        );
+
+        jTabbedPane1.addTab("Listar Eventos", Pn_listEvt);
+
+        jPanel1.add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 880, 590));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 950, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
         );
 
         pack();
@@ -83,6 +182,13 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel Pn_ListPais;
+    private javax.swing.JPanel Pn_agregPais;
+    private javax.swing.JPanel Pn_agregarEvt;
+    private javax.swing.JPanel Pn_agregarNad;
+    private javax.swing.JPanel Pn_listEvt;
+    private javax.swing.JPanel Pn_listNad;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTabbedPane jTabbedPane1;
     // End of variables declaration//GEN-END:variables
 }
