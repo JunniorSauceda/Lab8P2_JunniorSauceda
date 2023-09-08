@@ -39,7 +39,9 @@ public class adminEventos {
     public void setArchivo(File Archivo) {
         this.Archivo = Archivo;
     }
-
+    public void setevento(Evento e){
+        eventos.add(e);
+    }
     @Override
     public String toString() {
         return "eventos=" + eventos ;

@@ -45,6 +45,9 @@ public class adminPais {
     public String toString() {
         return paises.toString();
     }
+    public void setpais(Pais pais){
+        paises.add(pais);
+    }
     
     public void cargarArchivo() {
         try {            

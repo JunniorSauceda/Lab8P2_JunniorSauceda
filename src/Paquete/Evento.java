@@ -4,11 +4,13 @@
  */
 package Paquete;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Junnior Sauceda
  */
-public class Evento {
+public class Evento implements Serializable{
     private String Estilo;
     private int distancia;
     private double record;

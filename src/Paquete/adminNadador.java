@@ -39,6 +39,9 @@ public class adminNadador {
     public void setArchivo(File Archivo) {
         this.Archivo = Archivo;
     }
+    public void setnadador(Nadador n){
+        nadadores.add(n);
+    }
 
     @Override
     public String toString() {

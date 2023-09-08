@@ -4,11 +4,13 @@
  */
 package Paquete;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Junnior Sauceda
  */
-public class Nadador {
+public class Nadador implements Serializable{
    private String nombre;
    private Pais nacionalidad;
    private int edad, distancia,medallas;
