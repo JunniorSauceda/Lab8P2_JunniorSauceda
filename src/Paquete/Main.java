@@ -4,6 +4,9 @@
  */
 package Paquete;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Junnior Sauceda
@@ -29,6 +32,11 @@ public class Main extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         Pn_agregPais = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        tf_Country = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        Sp_CMedals = new javax.swing.JSpinner();
+        bt_addCountry = new javax.swing.JButton();
         Pn_agregarNad = new javax.swing.JPanel();
         Pn_agregarEvt = new javax.swing.JPanel();
         Pn_ListPais = new javax.swing.JPanel();
@@ -42,15 +50,54 @@ public class Main extends javax.swing.JFrame {
 
         Pn_agregPais.setBackground(new java.awt.Color(51, 0, 102));
 
+        jLabel1.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel1.setText("Nombre:");
+
+        jLabel2.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel2.setText("Cantidad de Medallas:");
+
+        Sp_CMedals.setModel(new javax.swing.SpinnerNumberModel(0, 0, null, 1));
+
+        bt_addCountry.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        bt_addCountry.setText("Agregar Pais");
+        bt_addCountry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_addCountryMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout Pn_agregPaisLayout = new javax.swing.GroupLayout(Pn_agregPais);
         Pn_agregPais.setLayout(Pn_agregPaisLayout);
         Pn_agregPaisLayout.setHorizontalGroup(
             Pn_agregPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 880, Short.MAX_VALUE)
+            .addGroup(Pn_agregPaisLayout.createSequentialGroup()
+                .addGroup(Pn_agregPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(Pn_agregPaisLayout.createSequentialGroup()
+                        .addGap(75, 75, 75)
+                        .addGroup(Pn_agregPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Sp_CMedals, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1)
+                            .addComponent(tf_Country, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(Pn_agregPaisLayout.createSequentialGroup()
+                        .addGap(311, 311, 311)
+                        .addComponent(bt_addCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(319, Short.MAX_VALUE))
         );
         Pn_agregPaisLayout.setVerticalGroup(
             Pn_agregPaisLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 559, Short.MAX_VALUE)
+            .addGroup(Pn_agregPaisLayout.createSequentialGroup()
+                .addGap(69, 69, 69)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(tf_Country, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Sp_CMedals, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(77, 77, 77)
+                .addComponent(bt_addCountry, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(185, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Agregar Pais", Pn_agregPais);
@@ -146,6 +193,20 @@ public class Main extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void bt_addCountryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addCountryMouseClicked
+        // TODO add your handling code here:
+        try {
+            String pais=tf_Country.getText();
+            int medallas=Integer.parseInt(Sp_CMedals.getValue().toString());
+            Pais P=new Pais(pais, medallas);
+            Paises.add(P);
+            JOptionPane.showMessageDialog(this, "Agregado");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error");
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_bt_addCountryMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -180,7 +241,10 @@ public class Main extends javax.swing.JFrame {
             }
         });
     }
-
+    ArrayList<Pais>Paises=new ArrayList<>();
+    ArrayList<Nadador> Nadadores=new ArrayList<>();
+    ArrayList<Evento> Eventos=new ArrayList<>();
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Pn_ListPais;
     private javax.swing.JPanel Pn_agregPais;
@@ -188,7 +252,12 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JPanel Pn_agregarNad;
     private javax.swing.JPanel Pn_listEvt;
     private javax.swing.JPanel Pn_listNad;
+    private javax.swing.JSpinner Sp_CMedals;
+    private javax.swing.JButton bt_addCountry;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField tf_Country;
     // End of variables declaration//GEN-END:variables
 }

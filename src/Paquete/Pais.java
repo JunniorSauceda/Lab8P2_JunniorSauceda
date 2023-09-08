@@ -4,13 +4,14 @@
  */
 package Paquete;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author Junnior Sauceda
  */
-public class Pais {
+public class Pais implements Serializable {
     private String nombre;
     private ArrayList<Nadador>nadadores=new ArrayList<>(); 
     private int medallas;
