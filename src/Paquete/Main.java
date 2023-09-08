@@ -77,6 +77,7 @@ public class Main extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         Tb_listEvt = new javax.swing.JTable();
         Pn_listWin = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -441,6 +442,21 @@ public class Main extends javax.swing.JFrame {
 
         tp_menu.addTab("Listar Ganadores", Pn_listWin);
 
+        jPanel2.setBackground(new java.awt.Color(51, 0, 102));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 880, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 559, Short.MAX_VALUE)
+        );
+
+        tp_menu.addTab("Simulacion", jPanel2);
+
         jPanel1.add(tp_menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 880, 590));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -495,40 +511,40 @@ public class Main extends javax.swing.JFrame {
             DefaultComboBoxModel model = new DefaultComboBoxModel();
             model.addAll(Paises);
             cb_nacion.setModel(model);
-            
+
         }
         if (tp_menu.getSelectedIndex() == 4) {
             llenarEvt();
             Tb_listEvt.setModel(new javax.swing.table.DefaultTableModel(new Object[][]{}, new String[]{
                 "Estilo", "Distancia", "Record"
             }));
-            
+
             DefaultTableModel modelo = (DefaultTableModel) Tb_listEvt.getModel();
-            
+
             for (Evento Evento1 : Eventos) {
-                Object[] row={Evento1.getEstilo(),Evento1.getDistancia(),Evento1.getRecord()};
+                Object[] row = {Evento1.getEstilo(), Evento1.getDistancia(), Evento1.getRecord()};
                 modelo.addRow(row);
             }
             Tb_listEvt.setModel(modelo);
-            
+
         }
 
     }//GEN-LAST:event_tp_menuStateChanged
-    
+
     public void llenarpaises() {
         Paises.clear();
         adminPais p = new adminPais("./Paises.secs");
         p.cargarArchivo();
         Paises.addAll(p.getPaises());
     }
-    
+
     public void llenarNad() {
         Nadadores.clear();
         adminNadador N = new adminNadador("./Nadadores.secs");
         N.cargarArchivo();
         Nadadores.addAll(N.getNadadores());
     }
-    
+
     public void llenarEvt() {
         Eventos.clear();
         adminEventos Evt = new adminEventos("./Eventos.secs");
@@ -542,8 +558,9 @@ public class Main extends javax.swing.JFrame {
     private void bt_addNadMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addNadMouseClicked
         // TODO add your handling code here:
         llenarpaises();
+        llenarNad();
         if (Paises.isEmpty()) {
-            
+
         } else {
             try {
                 String nom = tf_nom.getText();
@@ -551,43 +568,55 @@ public class Main extends javax.swing.JFrame {
                 int edad = Integer.parseInt(Sp_edad.getValue().toString());
                 double altura = Double.parseDouble(tf_estatura.getText());
                 String estilo = cb_estilo.getSelectedItem().toString();
-                int distancia = Integer.parseInt(cb_distancia.getSelectedItem().toString());
-                
-                double tiempo = Double.parseDouble(tf_bestTemp.getText());
-                int medallas = Integer.parseInt(Sp_Nmedals.getValue().toString());
-                Nadador N = new Nadador(nom, nacion, edad, distancia, medallas, altura, tiempo, estilo);
-                Nadadores.add(N);
-                for (Pais Paise : Paises) {
-                    if ((Paise.getNombre()).equals(nacion.getNombre())) {
-                        Paise.getNadadores().add(N);
+                int cont = 0;
+                for (Nadador Nadadore : (Paises.get(cb_nacionalidad.getSelectedIndex())).getNadadores()) {
+                    if (Nadadore.getEstilo().equals(estilo)) {
+                        cont++;
                     }
                 }
-                adminPais addp = new adminPais("./Paises.secs");
-                addp.cargarArchivo();
-                addp.setPaises(new ArrayList<>());
-                for (Pais Paise : Paises) {
-                    addp.setpais(Paise);
+                if (cont < 2) {
+                    int distancia = Integer.parseInt(cb_distancia.getSelectedItem().toString());
+                    double tiempo = Double.parseDouble(tf_bestTemp.getText());
+                    int medallas = Integer.parseInt(Sp_Nmedals.getValue().toString());
+                    Nadador N = new Nadador(nom, nacion, edad, distancia, medallas, altura, tiempo, estilo);
+                    Nadadores.add(N);
+                    for (Pais Paise : Paises) {
+                        if ((Paise.getNombre()).equals(nacion.getNombre())) {
+                            Paise.getNadadores().add(N);
+                        }
+                    }
+                    adminPais addp = new adminPais("./Paises.secs");
+                    addp.cargarArchivo();
+                    addp.setPaises(new ArrayList<>());
+                    for (Pais Paise : Paises) {
+                        addp.setpais(Paise);
+                    }
+                    addp.escribirArchivo();
+
+                    adminNadador addN = new adminNadador("./Nadadores.secs");
+                    addN.cargarArchivo();
+                    addN.setnadador(N);
+                    addN.escribirArchivo();
+                    JOptionPane.showMessageDialog(this, "Agregado con exito");
+                    
                 }
-                addp.escribirArchivo();
-                
-                adminNadador addN = new adminNadador("./Nadadores.secs");
-                addN.cargarArchivo();
-                addN.setnadador(N);
-                addN.escribirArchivo();
-                JOptionPane.showMessageDialog(this, "Agregado con exito");
+                else{
+                    JOptionPane.showMessageDialog(this, "No se pueden agregar mas nadadores de este estilo");
+                }
                 tf_nom.setText("");
-                Sp_edad.setValue(0);
-                tf_estatura.setText("");
-                tf_bestTemp.setText("");
-                Sp_Nmedals.setValue(0);
-                cb_nacionalidad.setSelectedIndex(0);
-                cb_distancia.setSelectedIndex(0);
-                cb_estilo.setSelectedIndex(0);
+                    Sp_edad.setValue(0);
+                    tf_estatura.setText("");
+                    tf_bestTemp.setText("");
+                    Sp_Nmedals.setValue(0);
+                    cb_nacionalidad.setSelectedIndex(0);
+                    cb_distancia.setSelectedIndex(0);
+                    cb_estilo.setSelectedIndex(0);
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "Error");
                 e.printStackTrace();
             }
         }
+
     }//GEN-LAST:event_bt_addNadMouseClicked
 
     private void bt_addEvtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_addEvtMouseClicked
@@ -621,15 +650,15 @@ public class Main extends javax.swing.JFrame {
                 Tb_listNad.setModel(new javax.swing.table.DefaultTableModel(new Object[][]{}, new String[]{
                     "Nombre", "Edad", "Estatura", "Estilo", "Distancia", "Record", "Medallas"
                 }));
-                
+
                 DefaultTableModel modelo = (DefaultTableModel) Tb_listNad.getModel();
-                
+
                 for (Nadador nad : P.getNadadores()) {
                     Object row[] = {nad.getNombre(), nad.getEdad(), nad.getEstatura(), nad.getEstilo(), nad.getDistancia(), nad.getTiempo(), nad.getMedallas()};
                     modelo.addRow(row);
                 }
                 Tb_listNad.setModel(modelo);
-                
+
             }
         }
     }//GEN-LAST:event_cb_nacionItemStateChanged
@@ -709,6 +738,7 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField tf_Country;
