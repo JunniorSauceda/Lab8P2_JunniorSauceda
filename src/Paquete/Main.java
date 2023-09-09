@@ -819,6 +819,9 @@ public class Main extends javax.swing.JFrame {
             DefaultComboBoxModel modelo= new DefaultComboBoxModel();
             DefaultComboBoxModel modelo2= new DefaultComboBoxModel();
             DefaultComboBoxModel modelo3= new DefaultComboBoxModel();
+            modelo.addElement("Ninguno");
+            modelo2.addElement("Ninguno");
+            modelo3.addElement("Ninguno");
             for (Nadador Nadadore : Nadadores) {
                 if((Nadadore.getDistancia()==((Evento)cb_EVT.getSelectedItem()).getDistancia())&&((Nadadore.getEstilo()).equals(((Evento)cb_EVT.getSelectedItem()).getEstilo()))){
                     modelo.addElement(Nadadore);
@@ -844,25 +847,44 @@ public class Main extends javax.swing.JFrame {
             boolean n2=true;
             boolean n3=true;
             int cont=0;
-            if((cb_Nad1.getSelectedItem()==null)){
+            if((cb_Nad1.getSelectedIndex()==0)){
                 n1=false;
                 cont++;
             }
-            if((cb_Nad2.getSelectedItem()==null)){
+            if((cb_Nad2.getSelectedIndex()==0)){
                 n2=false;
                 cont++;
             }
-            if((cb_Nad3.getSelectedItem()==null)){
-                n1=false;
+            if((cb_Nad3.getSelectedIndex()==0)){
+                n3=false;
                 cont++;
             }
             if(cont>1){
                 JOptionPane.showMessageDialog(this, "Deben haber al menos 2 nadadores");
             }
             else{
+                Evento Event=(Evento)cb_EVT.getSelectedItem();
+                
+                PB_N1.setValue(0);
+                PB_N2.setValue(0);
+                PB_N3.setValue(0);
+                Nadador ni1=null;
+                Nadador ni2=null;
+                Nadador ni3=null;
+                Nadador ganador=new Nadador();
+                if(n1){
+                    ni1=(Nadador)cb_Nad1.getSelectedItem();
+                }
+                if(n2){
+                    ni2=(Nadador)cb_Nad2.getSelectedItem();
+                }
+                if(n3){
+                    ni3=(Nadador)cb_Nad3.getSelectedItem();
+                }
                 Thread ba1=new Thr_Sim(PB_N1);
                 Thread ba2=new Thr_Sim(PB_N2);
                 Thread ba3=new Thr_Sim(PB_N3);
+                
                 if(n1){
                     ba1.start();
                 }
@@ -872,6 +894,24 @@ public class Main extends javax.swing.JFrame {
                 if(n3){
                     ba3.start();
                 }
+                Thread bacheck=new Thr_check(PB_N1, PB_N2, PB_N3,ba1,ba2,ba3,Event,ni1,ni2,ni3);
+                if(PB_N1.getValue()>=100){
+                    ganador=ni1;
+                    ba1.stop();
+                }
+                if(PB_N2.getValue()>=100){
+                    ganador=ni2;
+                    ba2.stop();
+                    
+                }
+                if(PB_N3.getValue()>=100){
+                    ganador=ni3;
+                    ba3.stop();
+                }
+                Ganadores.add(ganador);
+                
+                
+                
                         
             }
         } catch (Exception e) {

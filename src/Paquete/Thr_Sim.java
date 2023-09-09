@@ -40,7 +40,11 @@ public class Thr_Sim extends Thread{
     public void run(){
         while(vive){
             Random ran=new Random();
-            piscina.setValue(piscina.getValue()+(ran.nextInt(5)));
+            piscina.setValue(piscina.getValue()+(ran.nextInt(40)));
+            if(piscina.getValue()==100){
+                this.stop();
+                
+            }
             try {
                 Thread.sleep(1000);
             } catch (Exception e) {
