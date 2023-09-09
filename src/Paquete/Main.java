@@ -78,6 +78,21 @@ public class Main extends javax.swing.JFrame {
         Tb_listEvt = new javax.swing.JTable();
         Pn_listWin = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        cb_Nad1 = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        cb_Nad2 = new javax.swing.JComboBox<>();
+        jLabel17 = new javax.swing.JLabel();
+        cb_Nad3 = new javax.swing.JComboBox<>();
+        PB_N1 = new javax.swing.JProgressBar();
+        PB_N2 = new javax.swing.JProgressBar();
+        PB_N3 = new javax.swing.JProgressBar();
+        Lb_N1 = new javax.swing.JLabel();
+        Lb_N2 = new javax.swing.JLabel();
+        Lb_N3 = new javax.swing.JLabel();
+        bt_simular = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
+        cb_EVT = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -444,15 +459,130 @@ public class Main extends javax.swing.JFrame {
 
         jPanel2.setBackground(new java.awt.Color(51, 0, 102));
 
+        jLabel15.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel15.setText("Nadador 1:");
+
+        cb_Nad1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_Nad1ItemStateChanged(evt);
+            }
+        });
+
+        jLabel16.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel16.setText("Nadador 2:");
+
+        cb_Nad2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_Nad2ItemStateChanged(evt);
+            }
+        });
+
+        jLabel17.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel17.setText("Nadador 3:");
+
+        cb_Nad3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_Nad3ItemStateChanged(evt);
+            }
+        });
+
+        Lb_N1.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        Lb_N1.setText("Nadador 1:");
+
+        Lb_N2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        Lb_N2.setText("Nadador 2:");
+
+        Lb_N3.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
+        Lb_N3.setText("Nadador 3:");
+
+        bt_simular.setFont(new java.awt.Font("Roboto", 1, 14)); // NOI18N
+        bt_simular.setText("Iniciar Simulacion");
+        bt_simular.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                bt_simularMouseClicked(evt);
+            }
+        });
+
+        jLabel18.setFont(new java.awt.Font("Roboto", 1, 24)); // NOI18N
+        jLabel18.setText("Evento:");
+
+        cb_EVT.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                cb_EVTItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 880, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(PB_N3, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Lb_N1)
+                    .addComponent(PB_N1, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Lb_N2)
+                    .addComponent(PB_N2, javax.swing.GroupLayout.PREFERRED_SIZE, 750, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Lb_N3)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addGap(40, 40, 40)
+                                .addComponent(cb_EVT, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel17)
+                                    .addComponent(jLabel16)
+                                    .addComponent(jLabel15))
+                                .addGap(40, 40, 40)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cb_Nad3, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cb_Nad1, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cb_Nad2, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(bt_simular, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 559, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(bt_simular, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel18)
+                            .addComponent(cb_EVT, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel15)
+                            .addComponent(cb_Nad1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel16)
+                            .addComponent(cb_Nad2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17)
+                            .addComponent(cb_Nad3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)))
+                .addComponent(Lb_N1)
+                .addGap(18, 18, 18)
+                .addComponent(PB_N1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Lb_N2)
+                .addGap(18, 18, 18)
+                .addComponent(PB_N2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Lb_N3)
+                .addGap(18, 18, 18)
+                .addComponent(PB_N3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(87, 87, 87))
         );
 
         tp_menu.addTab("Simulacion", jPanel2);
@@ -527,6 +657,12 @@ public class Main extends javax.swing.JFrame {
             }
             Tb_listEvt.setModel(modelo);
 
+        }
+        if(tp_menu.getSelectedIndex()==6){
+            llenarEvt();
+            DefaultComboBoxModel modelo=new DefaultComboBoxModel();
+            modelo.addAll(Eventos);
+            cb_EVT.setModel(modelo);
         }
 
     }//GEN-LAST:event_tp_menuStateChanged
@@ -663,6 +799,87 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cb_nacionItemStateChanged
 
+    private void cb_Nad1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Nad1ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_Nad1ItemStateChanged
+
+    private void cb_Nad2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Nad2ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_Nad2ItemStateChanged
+
+    private void cb_Nad3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_Nad3ItemStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cb_Nad3ItemStateChanged
+
+    private void cb_EVTItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_cb_EVTItemStateChanged
+        // TODO add your handling code here:
+        try {
+            llenarNad();
+        if (evt.getStateChange() == 1) {
+            DefaultComboBoxModel modelo= new DefaultComboBoxModel();
+            DefaultComboBoxModel modelo2= new DefaultComboBoxModel();
+            DefaultComboBoxModel modelo3= new DefaultComboBoxModel();
+            for (Nadador Nadadore : Nadadores) {
+                if((Nadadore.getDistancia()==((Evento)cb_EVT.getSelectedItem()).getDistancia())&&((Nadadore.getEstilo()).equals(((Evento)cb_EVT.getSelectedItem()).getEstilo()))){
+                    modelo.addElement(Nadadore);
+                    modelo2.addElement(Nadadore);
+                    modelo3.addElement(Nadadore);
+                }
+            }
+            cb_Nad1.setModel(modelo);
+            cb_Nad2.setModel(modelo2);
+            cb_Nad3.setModel(modelo3);
+            
+        }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Eror");
+        }
+      
+    }//GEN-LAST:event_cb_EVTItemStateChanged
+
+    private void bt_simularMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_bt_simularMouseClicked
+        // TODO add your handling code here:
+        try {
+            boolean n1=true;
+            boolean n2=true;
+            boolean n3=true;
+            int cont=0;
+            if((cb_Nad1.getSelectedItem()==null)){
+                n1=false;
+                cont++;
+            }
+            if((cb_Nad2.getSelectedItem()==null)){
+                n2=false;
+                cont++;
+            }
+            if((cb_Nad3.getSelectedItem()==null)){
+                n1=false;
+                cont++;
+            }
+            if(cont>1){
+                JOptionPane.showMessageDialog(this, "Deben haber al menos 2 nadadores");
+            }
+            else{
+                Thread ba1=new Thr_Sim(PB_N1);
+                Thread ba2=new Thr_Sim(PB_N2);
+                Thread ba3=new Thr_Sim(PB_N3);
+                if(n1){
+                    ba1.start();
+                }
+                if(n2){
+                    ba2.start();
+                }
+                if(n3){
+                    ba3.start();
+                }
+                        
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error");
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_bt_simularMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -701,8 +918,14 @@ public class Main extends javax.swing.JFrame {
     ArrayList<Nadador> Nadadores = new ArrayList<>();
     ArrayList<Nadador> Ganadores = new ArrayList<>();
     ArrayList<Evento> Eventos = new ArrayList<>();
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Lb_N1;
+    private javax.swing.JLabel Lb_N2;
+    private javax.swing.JLabel Lb_N3;
+    private javax.swing.JProgressBar PB_N1;
+    private javax.swing.JProgressBar PB_N2;
+    private javax.swing.JProgressBar PB_N3;
     private javax.swing.JPanel Pn_ListNada;
     private javax.swing.JPanel Pn_agregPais;
     private javax.swing.JPanel Pn_agregarEvt;
@@ -717,6 +940,11 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton bt_addCountry;
     private javax.swing.JButton bt_addEvt;
     private javax.swing.JButton bt_addNad;
+    private javax.swing.JButton bt_simular;
+    private javax.swing.JComboBox<String> cb_EVT;
+    private javax.swing.JComboBox<String> cb_Nad1;
+    private javax.swing.JComboBox<String> cb_Nad2;
+    private javax.swing.JComboBox<String> cb_Nad3;
     private javax.swing.JComboBox<String> cb_distancia;
     private javax.swing.JComboBox<String> cb_distanciaEvt;
     private javax.swing.JComboBox<String> cb_estilo;
@@ -729,6 +957,10 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
